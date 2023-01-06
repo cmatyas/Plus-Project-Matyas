@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
+
+body {
+  font-family: "Quicksand", sans-serif;
+  padding: 10px 10px;
+  font-weight: bolder;
+}
+
+.form-control {
+  position: fixed;
+  right: 240px;
+  top: 10px;
+  width: 40%;
+}
+
+.btn-primary {
+  position: fixed;
+  right: 160px;
+  top: 10px;
+}
+
+.btn-success {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+}
+.icons {
+  width: 50px;
+}
+
+.container {
+  margin: 0 0 0 0;
+  padding: 0 0;
+  max-width: none;
+}
+
+.col-2 {
+  font-size: x-large;
+}
+
+.row {
+  margin-bottom: 20px;
+}
+
+.today {
+  display: block;
+}
+.weatherIcon {
+  position: relative;
+  width: 100px;
+  top: 0px;
+}
+
+.tempToday {
+  position: fixed;
+  left: 130px;
+  font-size: 90px;
+  top: 80px;
+  margin-bottom: 20px;
+}
+
+.tempToggle {
+  position: fixed;
+  left: 235px;
+  top: 110px;
+}
+
+.precip {
+  position: fixed;
+  left: 315px;
+  top: 110px;
+}
+
+.humid {
+  position: fixed;
+  left: 315px;
+  top: 130px;
+}
+
+.wind {
+  position: fixed;
+  left: 315px;
+  top: 150px;
+}
+.temps {
+  font-size: medium;
+}
+
+.weekly {
+  margin-top: 30px;
+}
