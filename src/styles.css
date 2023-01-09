@@ -64,24 +64,6 @@ body {
   left: 235px;
   top: 110px;
 }
-
-.precip {
-  position: fixed;
-  left: 315px;
-  top: 110px;
-}
-
-.humid {
-  position: fixed;
-  left: 315px;
-  top: 130px;
-}
-
-.wind {
-  position: fixed;
-  left: 315px;
-  top: 150px;
-}
 .temps {
   font-size: medium;
 }
