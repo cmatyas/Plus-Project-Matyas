@@ -5,24 +5,40 @@ body {
   padding: 10px 10px;
   font-weight: bolder;
 }
+.weather-app {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  border: 1px solid gray;
+  border-radius: 10px;
+}
+h1 {
+  font-size: 26px;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
 
+.coder {
+  max-width: 600px;
+  margin: 30px auto;
+}
 .form-control {
-  position: fixed;
-  right: 240px;
-  top: 10px;
-  width: 40%;
+  font-size: 14px;
+  width: 200px;
 }
 
 .btn-primary {
-  position: fixed;
-  right: 160px;
-  top: 10px;
+  font-size: 14px;
+  padding-left: 6px;
+  padding-right: 6px;
 }
 
 .btn-success {
-  position: fixed;
-  right: 10px;
-  top: 10px;
+  font-size: 14px;
+  padding-left: 6px;
+  padding-right: 6px;
 }
 .icons {
   width: 50px;
@@ -35,7 +51,7 @@ body {
 }
 
 .col-2 {
-  font-size: x-large;
+  font-size: large;
 }
 
 .row {
@@ -68,4 +84,5 @@ body {
 li {
   list-style: none;
   vertical-align: middle;
+  text-align: left;
 }
