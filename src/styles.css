@@ -5,13 +5,7 @@ body {
   padding: 10px 10px;
   font-weight: bolder;
 }
-.weather-app {
-  max-width: 600px;
-  margin: 30px auto;
-  padding: 20px;
-  border: 1px solid gray;
-  border-radius: 10px;
-}
+
 h1 {
   font-size: 26px;
 }
@@ -19,11 +13,20 @@ ul {
   margin: 0;
   padding: 0;
 }
+li {
+  list-style: none;
+  vertical-align: middle;
+  text-align: left;
+}
 
-.coder {
+.weather-app {
   max-width: 600px;
   margin: 30px auto;
+  padding: 20px;
+  border: 1px solid gray;
+  border-radius: 10px;
 }
+
 .form-control {
   font-size: 14px;
   width: 200px;
@@ -40,6 +43,7 @@ ul {
   padding-left: 6px;
   padding-right: 6px;
 }
+
 .icons {
   width: 50px;
 }
@@ -48,6 +52,7 @@ ul {
   margin: 0 0 0 0;
   max-width: none;
   border: 2px;
+  min-width: 581px;
 }
 
 .col-2 {
@@ -60,13 +65,13 @@ ul {
 
 .weatherIcon {
   width: 100px;
-  position: relative;
-  top: -20px;
+  line-height: 1;
+  float: left;
 }
 
 .tempToday {
-  font-size: 90px;
-  margin-bottom: 20px;
+  font-size: 70px;
+  line-height: 1;
 }
 
 .temps {
@@ -79,10 +84,11 @@ ul {
 
 .tempToggle {
   position: relative;
-  top: -50px;
+  top: -40px;
+  left: -15px;
 }
-li {
-  list-style: none;
-  vertical-align: middle;
-  text-align: left;
+
+.coder {
+  max-width: 600px;
+  margin: 30px auto;
 }
