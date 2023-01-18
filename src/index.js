@@ -27,7 +27,7 @@ currentLocationTemp.addEventListener("click", getGeoLocation);
 
 function getTemp(event) {
   event.preventDefault();
-  let newCity = document.querySelector("#form1");
+  let newCity = document.querySelector("#inlinForm");
   let h1 = document.querySelector("h1");
   h1.innerHTML = `${newCity.value}`;
   axios
@@ -39,7 +39,6 @@ searchedTemp.addEventListener("click", getTemp);
 
 let now = new Date();
 
-let h6 = document.querySelector("h6");
 let weekdays = [
   "Sunday",
   "Monday",
@@ -49,10 +48,38 @@ let weekdays = [
   "Friday",
   "Saturday",
 ];
+
+let weekdaysShortened = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
 let day = weekdays[now.getDay()];
 let hour = now.getHours();
 let minutes = now.getMinutes();
+
+let h6 = document.querySelector("h6");
 h6.innerHTML = `${day} ${hour}:${minutes}`;
+
+let dayZero = weekdaysShortened[now.getDay()];
+let day0 = document.querySelector("#dayZero");
+day0.innerHTML = `${dayZero}`;
+
+let dayOneShort = weekdaysShortened[now.getDay() + 1];
+let dayOne = document.querySelector("#dayOne");
+dayOne.innerHTML = `${dayOneShort}`;
+
+let dayTwoShort = weekdaysShortened[now.getDay() + 2];
+let dayTwo = document.querySelector("#dayTwo");
+dayTwo.innerHTML = `${dayTwoShort}`;
+
+let dayThreeShort = weekdaysShortened[now.getDay() + 3];
+let dayThree = document.querySelector("#dayThree");
+dayThree.innerHTML = `${dayThreeShort}`;
+
+let dayFourShort = weekdaysShortened[now.getDay() + 4];
+let dayFour = document.querySelector("#dayFour");
+dayFour.innerHTML = `${dayFourShort}`;
+
+let dayFiveShort = weekdaysShortened[now.getDay() + 5];
+let dayFive = document.querySelector("#dayFive");
+dayFive.innerHTML = `${dayFiveShort}`;
 
 let fahrenheitTemp = 42;
 function toCelcius(event) {
