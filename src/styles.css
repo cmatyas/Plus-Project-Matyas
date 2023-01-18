@@ -29,7 +29,7 @@ li {
 .weather-app {
   max-width: 600px;
   margin: 30px auto;
-  padding: 20px;
+  padding: 10px;
   border: 1px solid gray;
   border-radius: 10px;
 }
@@ -40,11 +40,16 @@ li {
 
 .form-control {
   font-size: 14px;
-  width: 200px;
-}
 
+  width: 140px;
+}
+.col-4 {
+  align-content: end;
+  padding-right: 0;
+}
 .btn-primary {
   font-size: 14px;
+  text-align: end;
   padding-left: 6px;
   padding-right: 6px;
 }
@@ -69,7 +74,6 @@ li {
 .tempToggle {
   position: relative;
   top: -40px;
-  left: -15px;
 }
 
 .temps {
@@ -90,5 +94,6 @@ li {
 
 .coder {
   max-width: 600px;
-  margin: 30px auto;
+  margin: 10px auto;
+  line-height: 0.5;
 }
