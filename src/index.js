@@ -47,9 +47,31 @@ let weekdays = [
   "Thursday",
   "Friday",
   "Saturday",
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
 ];
 
-let weekdaysShortened = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+let weekdaysShortened = [
+  "Sun",
+  "Mon",
+  "Tues",
+  "Wed",
+  "Thurs",
+  "Fri",
+  "Sat",
+  "Sun",
+  "Mon",
+  "Tues",
+  "Wed",
+  "Thurs",
+  "Fri",
+  "Sat",
+];
 let day = weekdays[now.getDay()];
 let hour = now.getHours();
 let minutes = now.getMinutes();
