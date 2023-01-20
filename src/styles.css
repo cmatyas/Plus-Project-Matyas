@@ -97,3 +97,13 @@ li {
   margin: 10px auto;
   line-height: 0.5;
 }
+
+.tempToggle .active {
+  color: black;
+  cursor: default;
+  text-decoration: none;
+}
+
+.tempToggle .active:hover {
+  text-decoration: none;
+}

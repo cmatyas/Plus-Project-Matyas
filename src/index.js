@@ -3,22 +3,25 @@ let apiKey = "701f06352d61835bc4fc894e7b084629";
 let apiUrl = "https://api.openweathermap.org/data/2.5/weather?";
 
 function currentConditions(response) {
-  let currentTemp = Math.round(response.data.main.temp);
   console.log(response.data);
+  fahrTemp = response.data.main.temp;
+  let currentTemp = Math.round(fahrTemp);
   let mainTemp = document.querySelector("#tempToday");
-  mainTemp.innerHTML = `${currentTemp}`;
   let feelsLikeTemp = Math.round(response.data.main.temp);
   let currentFeelsLike = document.querySelector("#feels");
-  currentFeelsLike.innerHTML = `${feelsLikeTemp}`;
   let currentHumidity = response.data.main.humidity;
   let curHumidity = document.querySelector("#humidity");
-  curHumidity.innerHTML = `${currentHumidity}`;
   let currentWind = Math.round(response.data.wind.speed);
   let curWind = document.querySelector("#wind");
-  curWind.innerHTML = `${currentWind}`;
   let skyConditions = response.data.weather[0].id;
   console.log(skyConditions);
   let imageType = document.querySelector("#currentImage");
+
+  mainTemp.innerHTML = `${currentTemp}`;
+  currentFeelsLike.innerHTML = `${feelsLikeTemp}`;
+  curHumidity.innerHTML = `${currentHumidity}`;
+  curWind.innerHTML = `${currentWind}`;
+
   if (skyConditions >= 200 && skyConditions <= 240) {
     imageType.setAttribute("src", "images/rain_and_lightning.png");
   } else if (skyConditions >= 300 && skyConditions <= 532) {
@@ -61,18 +64,6 @@ let minutes = now.getMinutes();
 
 let h6 = document.querySelector("h6");
 h6.innerHTML = `${day} ${hour}:${minutes}`;
-
-function newTemp(response) {
-  let myTemp = Math.round(response.data.main.temp);
-  let tempToday = document.querySelector("#tempToday");
-  tempToday.innerHTML = `${myTemp}`;
-}
-
-function newWind(response) {
-  let myWind = Math.round(response.data.wind.speed.value);
-  let currentWind = document.querySelector("#wind");
-  currentWind.innerHTML = `${myWind}`;
-}
 
 function getPosition(position) {
   let lat = position.coords.latitude;
@@ -143,22 +134,29 @@ let dayFiveShort = weekdaysShortened[now.getDay() + 5];
 let dayFive = document.querySelector("#dayFive");
 dayFive.innerHTML = `${dayFiveShort}`;
 
-let fahrenheitTemp = 42;
 function toCelcius(event) {
-  let celciusTemp = Math.round(((fahrenheitTemp - 32) * 5) / 9);
+  event.preventDefault();
   let tempToday = document.querySelector("#tempToday");
+  celcius.classList.add("active");
+  fahrenheit.classList.remove("active");
+
+  let celciusTemp = Math.round(((fahrTemp - 32) * 5) / 9);
   tempToday.innerHTML = `${celciusTemp}`;
 }
 let celcius = document.querySelector("#celcius");
 celcius.addEventListener("click", toCelcius);
 
-function toFahrenheit() {
+function toFahrenheit(event) {
+  event.preventDefault();
   let tempToday = document.querySelector("#tempToday");
-  tempToday.innerHTML = "42";
+  celcius.classList.remove("active");
+  fahrenheit.classList.add("active");
+  tempToday.innerHTML = Math.round(fahrTemp);
 }
 let fahrenheit = document.querySelector("#fahrenheit");
 fahrenheit.addEventListener("click", toFahrenheit);
 
+let fahrTemp = null;
 //if (weather[city] !== undefined) {
 //  let temperature = weather[city].temp;
 //  let celsius = Math.round(temperature);
