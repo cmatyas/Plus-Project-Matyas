@@ -2,19 +2,20 @@ let apiKey = "701f06352d61835bc4fc894e7b084629";
 
 let apiUrl = "https://api.openweathermap.org/data/2.5/weather?";
 
-function phillyConditions(response) {
-  let currentPhillyTemp = Math.round(response.data.main.temp);
-  let philaTemp = document.querySelector("#tempToday");
-  philaTemp.innerHTML = `${currentPhillyTemp}`;
+function currentConditions(response) {
+  let currentTemp = Math.round(response.data.main.temp);
+  console.log(response.data);
+  let mainTemp = document.querySelector("#tempToday");
+  mainTemp.innerHTML = `${currentTemp}`;
   let feelsLikeTemp = Math.round(response.data.main.temp);
   let currentFeelsLike = document.querySelector("#feels");
   currentFeelsLike.innerHTML = `${feelsLikeTemp}`;
-  let currentPhillyHumidity = response.data.main.humidity;
-  let philaHumidity = document.querySelector("#humidity");
-  philaHumidity.innerHTML = `${currentPhillyHumidity}`;
-  let currentPhillyWind = Math.round(response.data.wind.speed);
-  let philaWind = document.querySelector("#wind");
-  philaWind.innerHTML = `${currentPhillyWind}`;
+  let currentHumidity = response.data.main.humidity;
+  let curHumidity = document.querySelector("#humidity");
+  curHumidity.innerHTML = `${currentHumidity}`;
+  let currentWind = Math.round(response.data.wind.speed);
+  let curWind = document.querySelector("#wind");
+  curWind.innerHTML = `${currentWind}`;
   let skyConditions = response.data.weather[0].id;
   console.log(skyConditions);
   let imageType = document.querySelector("#currentImage");
@@ -34,7 +35,7 @@ function phillyConditions(response) {
 }
 axios
   .get(`${apiUrl}&q=Philadelphia&units=imperial&appid=${apiKey}`)
-  .then(phillyConditions);
+  .then(currentConditions);
 
 let now = new Date();
 let weekdays = [
@@ -80,37 +81,26 @@ function getPosition(position) {
   h1.innerHTML = "Current Location";
   axios
     .get(`${apiUrl}&lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`)
-    .then(newTemp);
+    .then(currentConditions);
 }
-
-function getPosition(position) {
-  let lat = position.coords.latitude;
-  let lon = position.coords.longitude;
-  let h1 = document.querySelector("h1");
-  h1.innerHTML = "Current Location";
-  axios
-    .get(`${apiUrl}&lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`)
-    .then(newWind);
-}
-
 function getGeoLocation() {
   navigator.geolocation.getCurrentPosition(getPosition);
 }
 
-let currentLocationTemp = document.querySelector("#current-city");
-currentLocationTemp.addEventListener("click", getGeoLocation);
+let currentLocationConditions = document.querySelector("#current-city");
+currentLocationConditions.addEventListener("click", getGeoLocation);
 
-function getTemp(event) {
+function getCity(event) {
   event.preventDefault();
   let newCity = document.querySelector("#inlineForm");
   let h1 = document.querySelector("h1");
   h1.innerHTML = `${newCity.value}`;
   axios
     .get(`${apiUrl}&q=${newCity.value}&units=imperial&appid=${apiKey}`)
-    .then(newTemp);
+    .then(currentConditions);
 }
 let searchedTemp = document.querySelector("#city-search");
-searchedTemp.addEventListener("click", getTemp);
+searchedTemp.addEventListener("click", getCity);
 
 let weekdaysShortened = [
   "Sun",
