@@ -15,8 +15,23 @@ function phillyConditions(response) {
   let currentPhillyWind = Math.round(response.data.wind.speed);
   let philaWind = document.querySelector("#wind");
   philaWind.innerHTML = `${currentPhillyWind}`;
+  let skyConditions = response.data.weather[0].id;
+  console.log(skyConditions);
+  let imageType = document.querySelector("#currentImage");
+  if (skyConditions >= 200 && skyConditions <= 240) {
+    imageType.setAttribute("src", "images/rain_and_lightning.png");
+  } else if (skyConditions >= 300 && skyConditions <= 532) {
+    imageType.setAttribute("src", "images/rain_cloud.png");
+  } else if (skyConditions >= 600 && skyConditions <= 632) {
+    imageType.setAttribute("src", "images/snow_cloud.png");
+  } else if (skyConditions >= 800 && skyConditions <= 803) {
+    imageType.setAttribute("src", "images/cloudySun.png");
+  } else if (skyConditions == 804) {
+    imageType.setAttribute("src", "images/clouds.png");
+  } else {
+    imageType.setAttribute("src", "images/sun.png");
+  }
 }
-
 axios
   .get(`${apiUrl}&q=Philadelphia&units=imperial&appid=${apiKey}`)
   .then(phillyConditions);
