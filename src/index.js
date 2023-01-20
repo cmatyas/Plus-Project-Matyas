@@ -134,22 +134,22 @@ let dayFiveShort = weekdaysShortened[now.getDay() + 5];
 let dayFive = document.querySelector("#dayFive");
 dayFive.innerHTML = `${dayFiveShort}`;
 
-function toCelcius(event) {
+function toCelsius(event) {
   event.preventDefault();
   let tempToday = document.querySelector("#tempToday");
-  celcius.classList.add("active");
+  celsius.classList.add("active");
   fahrenheit.classList.remove("active");
 
-  let celciusTemp = Math.round(((fahrTemp - 32) * 5) / 9);
-  tempToday.innerHTML = `${celciusTemp}`;
+  let celsiusTemp = Math.round(((fahrTemp - 32) * 5) / 9);
+  tempToday.innerHTML = `${celsiusTemp}`;
 }
-let celcius = document.querySelector("#celcius");
-celcius.addEventListener("click", toCelcius);
+let celsius = document.querySelector("#celsius");
+celsius.addEventListener("click", toCelsius);
 
 function toFahrenheit(event) {
   event.preventDefault();
   let tempToday = document.querySelector("#tempToday");
-  celcius.classList.remove("active");
+  celsius.classList.remove("active");
   fahrenheit.classList.add("active");
   tempToday.innerHTML = Math.round(fahrTemp);
 }
