@@ -40,10 +40,12 @@ li {
 
 .form-control {
   font-size: 14px;
-  width: 140px;
+  width: 160px;
 }
 
 .btn-primary {
+  position: relative;
+  right: -20px;
   font-size: 14px;
   text-align: end;
   padding-left: 6px;
@@ -51,6 +53,8 @@ li {
 }
 
 .btn-success {
+  position: relative;
+  right: -20px;
   font-size: 14px;
   padding-left: 6px;
   padding-right: 6px;
