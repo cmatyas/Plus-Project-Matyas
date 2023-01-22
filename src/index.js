@@ -52,6 +52,9 @@ let weekdays = [
 let day = weekdays[now.getDay()];
 let hour = now.getHours();
 let minutes = now.getMinutes();
+if (minutes < 10) {
+  minutes = `0${minutes}`;
+}
 
 let currentTime = document.querySelector("#currentTime");
 currentTime.innerHTML = `${day} ${hour}:${minutes}`;
@@ -114,59 +117,4 @@ let dayZero = weekdaysShortened[now.getDay()];
 let day0 = document.querySelector("#dayZero");
 day0.innerHTML = `${dayZero}`;
 
-let dayOneShort = weekdaysShortened[now.getDay() + 1];
-let dayOne = document.querySelector("#dayOne");
-dayOne.innerHTML = `${dayOneShort}`;
-
-let dayTwoShort = weekdaysShortened[now.getDay() + 2];
-let dayTwo = document.querySelector("#dayTwo");
-dayTwo.innerHTML = `${dayTwoShort}`;
-
-let dayThreeShort = weekdaysShortened[now.getDay() + 3];
-let dayThree = document.querySelector("#dayThree");
-dayThree.innerHTML = `${dayThreeShort}`;
-
-let dayFourShort = weekdaysShortened[now.getDay() + 4];
-let dayFour = document.querySelector("#dayFour");
-dayFour.innerHTML = `${dayFourShort}`;
-
-let dayFiveShort = weekdaysShortened[now.getDay() + 5];
-let dayFive = document.querySelector("#dayFive");
-dayFive.innerHTML = `${dayFiveShort}`;
-
-function toCelsius(event) {
-  event.preventDefault();
-  let tempToday = document.querySelector("#tempToday");
-  celsius.classList.add("active");
-  fahrenheit.classList.remove("active");
-
-  let celsiusTemp = Math.round(((fahrTemp - 32) * 5) / 9);
-  tempToday.innerHTML = `${celsiusTemp}`;
-}
-let celsius = document.querySelector("#celsius");
-celsius.addEventListener("click", toCelsius);
-
-function toFahrenheit(event) {
-  event.preventDefault();
-  let tempToday = document.querySelector("#tempToday");
-  celsius.classList.remove("active");
-  fahrenheit.classList.add("active");
-  tempToday.innerHTML = Math.round(fahrTemp);
-}
-let fahrenheit = document.querySelector("#fahrenheit");
-fahrenheit.addEventListener("click", toFahrenheit);
-
 let fahrTemp = null;
-//if (weather[city] !== undefined) {
-//  let temperature = weather[city].temp;
-//  let celsius = Math.round(temperature);
-//  let fahrenheit = Math.round((celsius * 9) / 5 + 32);
-//  let humidity = weather[city].humidity;
-//  alert(
-//    `It is currently ${celsius}ºC (${fahrenheit}) in ${city} with a humdity of ${humidity}%.`
-//  );
-//} else {
-//  alert(
-//    `Sorry, we don't have the conditions for this city. Try going to https://www.google.com/?q=weather+${city}`
-//  );
-//}

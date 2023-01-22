@@ -73,7 +73,8 @@ li {
 
 .tempToggle {
   position: relative;
-  top: -40px;
+  font-size: 30px;
+  top: -30px;
 }
 
 .temps {
@@ -96,14 +97,4 @@ li {
   max-width: 600px;
   margin: 10px auto;
   line-height: 0.5;
-}
-
-.tempToggle .active {
-  color: black;
-  cursor: default;
-  text-decoration: none;
-}
-
-.tempToggle .active:hover {
-  text-decoration: none;
 }
