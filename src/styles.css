@@ -40,13 +40,9 @@ li {
 
 .form-control {
   font-size: 14px;
-
   width: 140px;
 }
-.col-4 {
-  align-content: end;
-  padding-right: 0;
-}
+
 .btn-primary {
   font-size: 14px;
   text-align: end;
@@ -64,6 +60,8 @@ li {
   width: 100px;
   line-height: 1;
   float: left;
+  position: relative;
+  top: -12px;
 }
 
 .tempToday {
@@ -73,8 +71,8 @@ li {
 
 .tempToggle {
   position: relative;
-  font-size: 30px;
-  top: -30px;
+  font-size: 20px;
+  top: -35px;
 }
 
 .temps {
