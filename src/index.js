@@ -1,46 +1,34 @@
-let apiKey = "701f06352d61835bc4fc894e7b084629";
+let apiKey = "dea7930290bf9064796ot2c1b9b4c9a7";
 
-let apiUrl = "https://api.openweathermap.org/data/2.5/weather?";
+let apiUrl = "https://api.shecodes.io/weather/v1/forecast?";
 
 function currentConditions(response) {
   console.log(response.data);
-  fahrTemp = response.data.main.temp;
+  let h1 = document.querySelector("h1");
+  h1.innerHTML = `${response.data.city}`;
+  fahrTemp = response.data.daily[0].temperature.day;
   let currentTemp = Math.round(fahrTemp);
   let mainTemp = document.querySelector("#tempToday");
-  let feelsLikeTemp = Math.round(response.data.main.temp);
+  let feelsLikeTemp = Math.round(response.data.daily[0].temperature.day);
   let currentFeelsLike = document.querySelector("#feels");
-  let currentHumidity = response.data.main.humidity;
+  let currentHumidity = response.data.daily[0].temperature.humidity;
   let curHumidity = document.querySelector("#humidity");
-  let currentWind = Math.round(response.data.wind.speed);
+  let currentWind = Math.round(response.data.daily[0].wind.speed);
   let curWind = document.querySelector("#wind");
-  let skyConditions = response.data.weather[0].id;
   let conditionsDescription = document.querySelector("#conditions");
   console.log(conditionsDescription);
-  let skyDescription = response.data.weather[0].main;
+  let skyDescription = response.data.daily[0].condition.description;
   let imageType = document.querySelector("#currentImage");
+  imageType.setAttribute("src", response.data.daily[0].condition.icon_url);
 
   mainTemp.innerHTML = `${currentTemp}`;
   currentFeelsLike.innerHTML = `${feelsLikeTemp}`;
   curHumidity.innerHTML = `${currentHumidity}`;
   curWind.innerHTML = `${currentWind}`;
   conditionsDescription.innerHTML = `${skyDescription}`;
-
-  if (skyConditions >= 200 && skyConditions <= 240) {
-    imageType.setAttribute("src", "images/rain_and_lightning.png");
-  } else if (skyConditions >= 300 && skyConditions <= 532) {
-    imageType.setAttribute("src", "images/rain_cloud.png");
-  } else if (skyConditions >= 600 && skyConditions <= 632) {
-    imageType.setAttribute("src", "images/snow_cloud.png");
-  } else if (skyConditions >= 800 && skyConditions <= 803) {
-    imageType.setAttribute("src", "images/cloudySun.png");
-  } else if (skyConditions == 804) {
-    imageType.setAttribute("src", "images/clouds.png");
-  } else {
-    imageType.setAttribute("src", "images/sun.png");
-  }
 }
 axios
-  .get(`${apiUrl}&q=Philadelphia&units=imperial&appid=${apiKey}`)
+  .get(`${apiUrl}query=Philadelphia&units=imperial&key=${apiKey}`)
   .then(currentConditions);
 
 let now = new Date();
@@ -69,12 +57,12 @@ let currentTime = document.querySelector("#currentTime");
 currentTime.innerHTML = `${day} ${hour}:${minutes}`;
 
 function getPosition(position) {
-  let lat = position.coords.latitude;
-  let lon = position.coords.longitude;
+  let lati = position.coords.latitude;
+  let long = position.coords.longitude;
   let h1 = document.querySelector("h1");
   h1.innerHTML = "Current Location";
   axios
-    .get(`${apiUrl}&lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`)
+    .get(`${apiUrl}lat=${lati}&lon=${long}&units=imperial&key=${apiKey}`)
     .then(currentConditions);
 }
 function getGeoLocation() {
@@ -84,13 +72,22 @@ function getGeoLocation() {
 let currentLocationConditions = document.querySelector("#current-city");
 currentLocationConditions.addEventListener("click", getGeoLocation);
 
+function cityCoords(response) {
+  console.log(response);
+  let lati = response.data.coord.lat;
+  let long = response.data.coord.lon;
+  axios
+    .get(`${apiUrl}lat=${lati}&lon=${long}&units=imperial&key=${apiKey}`)
+    .then(currentConditions);
+}
+
 function getCity(event) {
   event.preventDefault();
   let newCity = document.querySelector("#inlineForm");
   let h1 = document.querySelector("h1");
   h1.innerHTML = `${newCity.value}`;
   axios
-    .get(`${apiUrl}&q=${newCity.value}&units=imperial&appid=${apiKey}`)
+    .get(`${apiUrl}query=${newCity.value}&units=imperial&key=${apiKey}`)
     .then(currentConditions);
 }
 let searchedTemp = document.querySelector("#city-search");
