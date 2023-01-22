@@ -14,13 +14,16 @@ function currentConditions(response) {
   let currentWind = Math.round(response.data.wind.speed);
   let curWind = document.querySelector("#wind");
   let skyConditions = response.data.weather[0].id;
-  console.log(skyConditions);
+  let conditionsDescription = document.querySelector("#conditions");
+  console.log(conditionsDescription);
+  let skyDescription = response.data.weather[0].main;
   let imageType = document.querySelector("#currentImage");
 
   mainTemp.innerHTML = `${currentTemp}`;
   currentFeelsLike.innerHTML = `${feelsLikeTemp}`;
   curHumidity.innerHTML = `${currentHumidity}`;
   curWind.innerHTML = `${currentWind}`;
+  conditionsDescription.innerHTML = `${skyDescription}`;
 
   if (skyConditions >= 200 && skyConditions <= 240) {
     imageType.setAttribute("src", "images/rain_and_lightning.png");
@@ -62,8 +65,8 @@ let day = weekdays[now.getDay()];
 let hour = now.getHours();
 let minutes = now.getMinutes();
 
-let h6 = document.querySelector("h6");
-h6.innerHTML = `${day} ${hour}:${minutes}`;
+let currentTime = document.querySelector("#currentTime");
+currentTime.innerHTML = `${day} ${hour}:${minutes}`;
 
 function getPosition(position) {
   let lat = position.coords.latitude;

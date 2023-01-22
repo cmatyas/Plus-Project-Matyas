@@ -27,7 +27,10 @@
         <div class="row justify-content-ends">
           <div class="col-5">
             <h1>Philadelphia, PA</h1>
-            <h6>Date and Time</h6>
+            <h6>
+              <span id="currentTime"> Date and Time </span> <br />
+              <span id="conditions"> Sunny</span>
+            </h6>
           </div>
           <div class="col-3">
             <input
@@ -84,9 +87,13 @@
                 src="images/cloudySun.png"
                 alt="Partly Cloudy"
                 class="icons"
+                id="imageZero"
               />
               <br />
-              <span class="temps"> 42ºF / 26ºF </span>
+              <span class="temps">
+                <span class="highZero"> 41ºF </span> /
+                <span class="lowZero"> 27ºF </span>
+              </span>
             </div>
             <div class="col-2 text-center" id="weekly">
               <span class="dayOne" id="dayOne"> Sun </span>
@@ -95,9 +102,13 @@
                 src="images/cloudySun.png"
                 alt="Partly Cloudy"
                 class="icons"
+                id="imageOne"
               />
               <br />
-              <span class="temps"> 38ºF / 27ºF </span>
+              <span class="temps">
+                <span class="highOne"> 41ºF </span> /
+                <span class="lowOne"> 27ºF </span>
+              </span>
             </div>
             <div class="col-2 text-center day0" id="weekly">
               <span class="dayTwo" id="dayTwo"> Mon </span>
@@ -106,16 +117,28 @@
                 src="images/cloudySun.png"
                 alt="Partly Cloudy"
                 class="icons"
+                id="imageTwo"
               />
               <br />
-              <span class="temps"> 41ºF / 25ºF </span>
+              <span class="temps">
+                <span class="highTwo"> 41ºF </span> /
+                <span class="lowTwo"> 27ºF </span>
+              </span>
             </div>
             <div class="col-2 text-center" id="weekly">
               <span class="dayThree" id="dayThree"> Tues </span>
               <br />
-              <img src="images/sun.png" alt="Partly Cloudy" class="icons" />
+              <img
+                src="images/sun.png"
+                alt="Partly Cloudy"
+                class="icons"
+                id="imageThree"
+              />
               <br />
-              <span class="temps"> 42ºF / 22ºF </span>
+              <span class="temps">
+                <span class="highThree"> 41ºF </span> /
+                <span class="lowThree"> 27ºF </span>
+              </span>
             </div>
             <div class="col-2 text-center" id="weekly">
               <span class="dayFour" id="dayFour"> Wed </span>
@@ -124,9 +147,13 @@
                 src="images/cloudySun.png"
                 alt="Partly Cloudy"
                 class="icons"
+                id="imageFour"
               />
               <br />
-              <span class="temps"> 41ºF / 27ºF </span>
+              <span class="temps">
+                <span class="highFour"> 41ºF </span> /
+                <span class="lowFour"> 27ºF </span>
+              </span>
             </div>
             <div class="col-2 text-center" id="weekly">
               <span class="dayFive" id="dayFive"> Thurs </span>
@@ -135,9 +162,13 @@
                 src="images/cloudySun.png"
                 alt="Partly Cloudy"
                 class="icons"
+                id="imageFive"
               />
               <br />
-              <span class="temps"> 41ºF / 27ºF </span>
+              <span class="temps">
+                <span class="highFive"> 41ºF </span> /
+                <span class="lowFive"> 27ºF </span>
+              </span>
             </div>
           </div>
         </div>
