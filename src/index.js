@@ -59,9 +59,9 @@ function displayForecast(response) {
               />
               <br />
               <span class="temps">
-                <span class="highTemp"> <strong>${Math.round(
+                <span class="highTemp">${Math.round(
                   forecastDay.temperature.maximum
-                )}ºF </strong> </span> /
+                )}ºF </span> /
                 <span class="lowTemp"> ${Math.round(
                   forecastDay.temperature.minimum
                 )}ºF </span>
