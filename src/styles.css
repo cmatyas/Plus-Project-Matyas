@@ -83,6 +83,10 @@ li {
   font-size: small;
 }
 
+.highTemp {
+  font-style: bold;
+}
+
 .weekly {
   margin-top: 30px;
 }
